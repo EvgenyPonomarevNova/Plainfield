@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plainfield™ — AI-native consulting, UAE</title>
+    <!-- Премиальный шрифт Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 (для соцсетей и мессенджеров) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ===== СБРОС И ПЕРЕМЕННЫЕ ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #0a1a1f;
+        line-height: 1.4;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Акцентный салатовый */
+      .accent-salat {
+        color: #ccff00;
+      }
+      .bg-accent {
+        background-color: #ccff00;
+        color: #0a1a1f;
+      }
+      .btn-salat {
+        background-color: #ccff00;
+        color: #0a1a1f;
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: all 0.2s;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: 0 4px 12px rgba(204, 255, 0, 0.2);
+      }
+      .btn-salat:hover {
+        background-color: #b8e000;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(204, 255, 0, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1.5px solid #0a1a1f;
+        color: #0a1a1f;
+        font-weight: 500;
+        padding: 12px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+      }
+      .btn-outline:hover {
+        background: #0a1a1f;
+        color: white;
+      }
+
+      /* Типографика */
+      h1,
+      h2,
+      h3 {
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      h1 {
+        font-size: 5rem;
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+        font-weight: 500;
+      }
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      .section {
+        padding: 90px 0;
+      }
+      .section-sm {
+        padding: 60px 0;
+      }
+
+      /* Header */
+      header {
+        padding: 20px 0;
+        background: transparent;
+        position: relative;
+        z-index: 10;
+      }
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: inline-block;
+        line-height: 0;
+      }
+      .logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+      nav {
+        display: flex;
+        gap: 44px;
+        align-items: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: #0a1a1f;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: #ccff00;
+      }
+      .lang-switch {
+        display: flex;
+        gap: 8px;
+        font-weight: 600;
+        margin-left: 8px;
+      }
+      .lang-switch a {
+        color: #0a1a1f;
+        opacity: 0.6;
+      }
+      .lang-switch a:first-child {
+        opacity: 1;
+        color: #ccff00;
+      }
+
+      /* Hero большой с фоном */
+      .hero-wrapper {
+        position: relative;
+        background-image: url("./img/bagr2.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: -80px; /* Поднимаем чтобы наехать на header */
+        padding-top: 80px; /* Компенсируем отступ */
+      }
+
+      .hero-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(255, 255, 255, 0.8) 20%,
+          rgba(255, 255, 255, 0.6) 10%
+        );
+        z-index: 1;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 100px 0 40px;
+        position: relative;
+        z-index: 2;
+      }
+      .hero h1 {
+        max-width: 1000px;
+      }
+      .ai-dot i {
+        color: #ccff00;
+        font-style: normal;
+      }
+      .hero-sub {
+        font-size: 1.5rem;
+        color: #2d3a40;
+        max-width: 700px;
+        margin-bottom: 30px;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+      .hero-description {
+        font-size: 1.1rem;
+        color: #4a5a62;
+        max-width: 580px;
+        margin-bottom: 40px;
+      }
+
+      /* Trust Bar — теперь на фоне Hero */
+      .trust-bar {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(1px);
+        border-radius: 80px;
+        padding: 40px 48px;
+        margin: 40px 0 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 2;
+      }
+      .bank-logo {
+        display: inline-block;
+        transition: all 0.2s;
+        opacity: 1;
+        line-height: 0;
+      }
+      .bank-logo:hover {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+      .bank-logo img {
+        height: 40px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+      }
+
+      /* Карточки услуг */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+        margin: 50px 0 40px;
+      }
+      .service-card {
+        background: #ffffff;
+        padding: 40px 28px;
+        border-radius: 32px;
+        transition: 0.25s ease;
+        border: 1px solid #edf2f5;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      }
+      .service-card:hover {
+        border-color: #ccff00;
+        transform: translateY(-6px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.04);
+      }
+      .service-card h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .service-card p {
+        color: #4a5a62;
+        margin-bottom: 28px;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .card-link {
+        text-decoration: none;
+        font-weight: 600;
+        color: #0a1a1f;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid transparent;
+        transition: 0.2s;
+      }
+      .card-link:after {
+        content: "→";
+        font-size: 1.2rem;
+        transition: transform 0.2s;
+      }
+      .card-link:hover {
+        border-bottom-color: #ccff00;
+      }
+      .card-link:hover:after {
+        transform: translateX(5px);
+      }
+
+      /* How it works */
+      .steps {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin: 50px 0 30px;
+      }
+      .step-item {
+        flex: 1;
+        text-align: left;
+        border-top: 4px solid #ccff00;
+        padding-top: 30px;
+      }
+      .step-num {
+        font-size: 1.1rem;
+        color: #ccff00;
+        font-weight: 700;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+      }
+      .step-name {
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      /* Метрики (Clarity over noise) */
+      .metrics {
+        background-color: #0a1a1f;
+        color: white;
+        border-radius: 60px;
+        padding: 80px 60px;
+        margin: 70px 0;
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+      .metric-item {
+        text-align: center;
+      }
+      .metric-value {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #ccff00;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      .metric-label {
+        font-size: 1.1rem;
+        color: #a0b3bc;
+        font-weight: 400;
+      }
+      .clarity-slogan {
+        font-size: 2.8rem;
+        font-weight: 350;
+        letter-spacing: -0.02em;
+        border-top: 1px solid #2d4855;
+        padding-top: 60px;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid #eaeef2;
+        padding: 60px 0 40px;
+        background: #ffffff;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+      .footer-logo {
+        display: inline-block;
+        line-height: 0;
+        margin-bottom: 20px;
+      }
+      .footer-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+      .footer-about {
+        color: #4a5a62;
+        font-size: 1rem;
+        max-width: 260px;
+        line-height: 1.5;
+      }
+      .footer-nav-title {
+        font-weight: 600;
+        margin-bottom: 24px;
+        font-size: 1.1rem;
+      }
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .footer-nav a {
+        text-decoration: none;
+        color: #4a5a62;
+        font-weight: 400;
+        transition: color 0.2s;
+      }
+      .footer-nav a:hover {
+        color: #ccff00;
+      }
+      .social-links {
+        display: flex;
+        gap: 30px;
+        font-size: 1.8rem;
+        margin-top: 20px;
+      }
+      .social-links a {
+        color: #0a1a1f;
+        transition: all 0.2s;
+      }
+      .social-links a:hover {
+        color: #ccff00;
+        transform: translateY(-3px);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #6d7b84;
+        font-size: 0.95rem;
+        border-top: 1px solid #eaeef2;
+        padding-top: 32px;
+      }
+      .footer-bottom a {
+        color: #6d7b84;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-bottom a:hover {
+        color: #ccff00;
+      }
+
+      /* Плавающие кнопки (WhatsApp / Telegram) */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        z-index: 1000;
+      }
+      .floating-buttons a {
+        background: #ccff00;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        font-size: 2.2rem;
+        color: #0a1a1f;
+        transition: 0.25s;
+        text-decoration: none;
+      }
+      .floating-buttons a:hover {
+        background: #b8e000;
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Адаптивность */
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 4rem;
+        }
+        h2 {
+          font-size: 2.8rem;
+        }
+        .cards-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .metrics-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+        h1 {
+          font-size: 3rem;
+        }
+        h2 {
+          font-size: 2.2rem;
+        }
+        .header-inner {
+          flex-direction: column;
+          gap: 20px;
+        }
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+        }
+        .trust-bar {
+          justify-content: center;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .steps {
+          flex-direction: column;
+        }
+        .metrics-grid {
+          grid-template-columns: 1fr;
+        }
+        .metrics {
+          padding: 40px 20px;
+        }
+        .clarity-slogan {
+          font-size: 2rem;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .logo img,
+        .footer-logo img {
+          height: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER (лого, меню, Contact, EN/RU) -->
+    <header>
+      <div class="container header-inner">
+        <a href="/" class="logo"
+          ><img src="./img/logo.jpg" alt="Plainfield"
+        /></a>
+        <nav>
+          <a href="#">Services</a>
+          <a href="#">About us</a>
+          <a href="#">AI</a>
+          <a href="#">Partners</a>
+          <a href="/contact" class="btn-salat" style="padding: 10px 24px"
+            >Contact</a
+          >
+          <div class="lang-switch">
+            <a href="#">EN</a>
+            <span>/</span>
+            <a href="#">RU</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO + TRUST BAR на одном фоне -->
+      <div class="hero-wrapper">
+        <div class="container">
+          <!-- HERO БЛОК -->
+          <section class="hero">
+            <h1>
+              <span class="ai-dot">A<span class="accent-salat">i</span></span
+              >-native consulting
+            </h1>
+            <div class="hero-sub">
+              Turning data, systems, and strategy into long-term advantage.
+            </div>
+            <div class="hero-description">
+              We build AI-powered foundations for modern businesses in the UAE —
+              from licensing to golden visas.
+            </div>
+            <a
+              href="/contact"
+              class="btn-salat"
+              style="padding: 14px 36px; font-size: 1.1rem"
+              >Book Strategy Call</a
+            >
+          </section>
+
+          <!-- TRUST BAR (на том же фоне) -->
+          <div class="trust-bar">
+            <a href="#" class="bank-logo fab"
+              ><img src="./img/FAB.svg" alt="FAB"
+            /></a>
+            <a href="#" class="bank-logo emirates-nbd"
+              ><img src="./img/Emirates NBD.svg" alt="Emirates NBD"
+            /></a>
+            <a href="#" class="bank-logo emirates-islamic"
+              ><img src="./img/Emirates Islamic.svg" alt="Emirates Islamic"
+            /></a>
+            <a href="#" class="bank-logo mashreq"
+              ><img src="./img/Mashreq Bank.svg" alt="Mashreq Bank"
+            /></a>
+            <a href="#" class="bank-logo wio"
+              ><img src="./img/Wio.svg" alt="Wio"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT WE DO (4 карточки + кнопка Full services list) -->
+      <section class="section container">
+        <h2>What we do</h2>
+        <div class="cards-grid">
+          <div class="service-card">
+            <h3>Core Strategy Setup</h3>
+            <p>UAE Business Licensing & entity setup with AI efficiency.</p>
+            <a href="#" class="card-link">Learn more</a>
+          </div>
+          <div class="service-card">
+            <h3>Bank Accounts & Compliance</h3>
+            <p>Fast-track corporate banking and regulatory compliance.</p>
+            <a href="#" class="card-link">Learn more</a>
+          </div>
+          <div class="service-card">
+            <h3>Golden Visas 10 years</h3>
+            <p>Long-term residency for investors, executives and families.</p>
+            <a href="#" class="card-link">Learn more</a>
+          </div>
+          <div class="service-card">
+            <h3>AI‑Powered Workflow</h3>
+            <p>Custom automation and optimization for your operations.</p>
+            <a href="#" class="card-link">Learn more</a>
+          </div>
+        </div>
+        <a href="/services" class="btn-outline">Full services list →</a>
+      </section>
+
+      <!-- HOW IT WORKS (Consult → Analyze → Implement → Optimize) -->
+      <section class="section-sm container">
+        <h2>How it works</h2>
+        <div class="steps">
+          <div class="step-item">
+            <div class="step-num">01 — Consult</div>
+            <div class="step-name">Deep discovery<br />of your goals</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">02 — Analyze</div>
+            <div class="step-name">Data & process<br />audit</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">03 — Implement</div>
+            <div class="step-name">Execution with<br />AI edge</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">04 — Optimize</div>
+            <div class="step-name">Continuous<br />improvement</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- БЛОК СКОРОСТИ И ЭФФЕКТИВНОСТИ (метрики + слоган) -->
+      <section class="container">
+        <div class="metrics">
+          <div class="metrics-grid">
+            <div class="metric-item">
+              <div class="metric-value">24 hrs</div>
+              <div class="metric-label">Company License</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">1-24 hrs</div>
+              <div class="metric-label">Bank Accounts</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">12-24 hrs</div>
+              <div class="metric-label">Golden Visa approval</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">48 hrs</div>
+              <div class="metric-label">Residency</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value">24 hrs</div>
+              <div class="metric-label">Urgent ID printing</div>
+            </div>
+          </div>
+          <div class="clarity-slogan">Clarity over noise.</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (с дублированием навигации, Privacy Policy, соцсети) -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" class="footer-logo"
+              ><img src="./img/logo.jpg" alt="Plainfield"
+            /></a>
+            <div class="footer-about">
+              AI-native consulting for forward-thinking businesses in the UAE.
+            </div>
+            <div class="social-links">
+              <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-nav-title">Navigation</div>
+            <div class="footer-nav">
+              <a href="#">Services</a>
+              <a href="#">About us</a>
+              <a href="#">AI</a>
+              <a href="#">Partners</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-nav-title">Get in touch</div>
+            <div class="footer-nav">
+              <a href="/contact">Contact</a>
+              <a href="#">Careers</a>
+              <a href="/privacy">Privacy Policy</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-nav-title">Legal</div>
+            <div class="footer-nav">
+              <a href="/privacy">Privacy Policy</a>
+              <a href="#">Terms</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Plainfield™. All rights reserved.</div>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ПЛАВАЮЩИЕ КНОПКИ WhatsApp и Telegram -->
+    <div class="floating-buttons">
+      <a href="https://wa.me/971XXXXXXXXX" target="_blank" title="WhatsApp"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a
+        href="tg://resolve?domain=plainfield_ai"
+        target="_blank"
+        title="Telegram"
+        ><i class="fab fa-telegram-plane"></i
+      ></a>
+    </div>
+
+    <script>
+      // Лёгкая анимация для будущей интеграции с Webflow
+      console.log("Plainfield — главная страница (полная версия по ТЗ)");
+    </script>
+  </body>
+</html>
